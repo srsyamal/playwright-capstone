@@ -59,6 +59,9 @@ pytest -m smok
 ## all test pass
 ![all case pass](/Errors/all-case-pass.png)
 
+## git hub actions
+![alt text](/Errors/gitActions.png)
+
 # 7. Email notifications
 
 - Email notification on successful github action
