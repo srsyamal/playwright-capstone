@@ -15,7 +15,7 @@ playwright-capstone/
 ├── utils/                # Logging, JSON deep-compare, Session Storage, Models
 ├── logs/                 # Execution logs
 └── pytest.ini            # Pytest configuration and markers
-
+```
 
 # 1. Clone repository
 git clone [https://github.com/your-username/playwright-capstone.git](https://github.com/your-username/playwright-capstone.git)
@@ -53,3 +53,26 @@ pytest -m smok
 git init
 
 git clone https://github.com/srsyamal/playwright-capstone.git
+
+## git workflow failed due to case sensitive workflow folder name
+
+### command to modify folder name
+
+```
+# rename folder
+git mv .github/Workflows .github/workflows_temp && git mv .github/workflows_temp .github/workflows
+
+# commit changes to github
+git add .github/workflows
+git commit -m "fix: lowercase workflows folder name"
+git push
+```
+
+## git actions failed due to yaml configuration errors
+
+![alt text](/Errors/workflowError1.png)
+
+Changed configuraion
+
+![alt text](/Errors/updatedWorkflowConfig.png)
+

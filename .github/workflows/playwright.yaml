@@ -1,10 +1,8 @@
 name: Playwright Python Automation Framework
 
 on:
-  branches:
-    - '*'
   push:
-    branches: [ main, master ]
+    - '*'
   pull_request:
     branches: [ main, master ]
   workflow_dispatch:
