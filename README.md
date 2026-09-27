@@ -40,6 +40,12 @@ pytest -m smok
 ## all test pass
 ![all case pass](/Errors/all-case-pass.png)
 
+# Email notification
+
+![failure email notification](/Errors/email1.png)
+
+![failure email content](/Errors/email2.png)
+
 # Errors while testing and Diagnose steps
 
 ## Error 1
@@ -69,16 +75,23 @@ git push
 ```
 
 ## git actions failed due to yaml configuration errors
-### error1
+### Error2
 ![alt text](/Errors/workflowError1.png)
 
 ### fix: Configuraion change
 
 ![alt text](/Errors/workflowFix1.png)
 
-### error2
+### Error3
 ![alt text](/Errors/workflowError2.png)
 
 ### fix: Configuration change
 ![alt text](/Errors/workflowFix2.png)
 
+### Error4
+Workflow executed, artefacts stored successfully except Email configuraitons
+
+![alt text](/Errors/workflowError3.png)
+
+### fix: configure 'EMAIL_TO' variable
+Configured the github secrets environment variable `EMAIL_TO` in settings
