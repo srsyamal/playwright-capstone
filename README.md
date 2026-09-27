@@ -69,10 +69,16 @@ git push
 ```
 
 ## git actions failed due to yaml configuration errors
-
+### error1
 ![alt text](/Errors/workflowError1.png)
 
-Changed configuraion
+### fix: Configuraion change
 
-![alt text](/Errors/updatedWorkflowConfig.png)
+![alt text](/Errors/workflowFix1.png)
+
+### error2
+![alt text](/Errors/workflowError2.png)
+
+### fix: Configuration change
+![alt text](/Errors/workflowFix2.png)
 
