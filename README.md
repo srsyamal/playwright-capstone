@@ -21,40 +21,6 @@ playwright-capstone/
 git clone [https://github.com/your-username/playwright-capstone.git](https://github.com/your-username/playwright-capstone.git)
 cd playwright-capstone
 
-# 2. Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# 3. Install dependencies
-pip install -r requirements.txt
-
-# 4. Install Playwright browser binaries
-playwright install
-
-# 4. Run tests
-pytest
-pytest -m smok
-
-# Success screens
-
-## all test pass
-![all case pass](/Errors/all-case-pass.png)
-
-# Email notification
-
-![failure email notification](/Errors/email1.png)
-
-![failure email content](/Errors/email2.png)
-
-# Errors while testing and Diagnose steps
-
-## Error 1
-### playwright._impl._errors.Error: BrowserType.launch: Executable doesn't exist
-
-![alt text](/Errors/error1.png)
-
-### fix: installed chromium browsers 'playwright install' 
-
 # git commands used
 git init
 
@@ -73,6 +39,46 @@ git add .github/workflows
 git commit -m "fix: lowercase workflows folder name"
 git push
 ```
+
+# 2. Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Install Playwright browser binaries
+playwright install
+
+# 5. Run tests
+pytest
+pytest -m smok
+
+# 6. Success screens
+
+## all test pass
+![all case pass](/Errors/all-case-pass.png)
+
+# 7. Email notifications
+
+- Email notification on successful github action
+
+![Success email notification](/Errors/email.png)
+
+- Email notification on failed github action
+
+![failure email notification](/Errors/email1.png)
+
+![failure email content](/Errors/email2.png)
+
+# 8. Errors while testing and Diagnose steps
+
+## Error 1
+### playwright._impl._errors.Error: BrowserType.launch: Executable doesn't exist
+
+![alt text](/Errors/error1.png)
+
+### fix: installed chromium browsers 'playwright install' 
 
 ## git actions failed due to yaml configuration errors
 ### Error2
