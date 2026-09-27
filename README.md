@@ -95,3 +95,4 @@ Workflow executed, artefacts stored successfully except Email configuraitons
 
 ### fix: configure 'EMAIL_TO' variable
 Configured the github secrets environment variable `EMAIL_TO` in settings
+Configured email and pass key as well
