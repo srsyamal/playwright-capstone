@@ -1,0 +1,68 @@
+name: Playwright Python Automation Framework
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Run Playwright Test Suite
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Install Playwright Chromium
+        run: |
+          playwright install --with-deps chromium
+
+      - name: Execute Pytest Suite
+        run: |
+          pytest --html=report.html --self-contained-html --tracing=retain-on-failure --screenshot=only-on-failure --video=retain-on-failure
+        continue-on-error: true
+
+      - name: Upload HTML Test Report
+        id: upload-report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pytest-html-report
+          path: |
+            report.html
+            logs/
+            test-results/
+
+      - name: Send Email Notification
+        if: always()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "Test Execution Report - ${{ github.repository }} (Build: ${{ github.run_number }})"
+          to: ${{ secrets.EMAIL_TO }}
+          from: Playwright CI Pipeline
+          body: |
+            Automation run completed.
+            Repository: ${{ github.repository }}
+            Branch: ${{ github.ref }}
+            Workflow Status: ${{ job.status }}
+            
+            View uploaded execution artifacts and trace logs in GitHub Actions.
+          attachments: report.html
